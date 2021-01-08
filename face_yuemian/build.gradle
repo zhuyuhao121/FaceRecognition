@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'armeabi', 'x86'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api 'org.greenrobot:greendao:3.2.2'
+}
+
+apply plugin: 'maven'
+uploadArchives {
+    repositories.mavenDeployer {
+        // 本地仓库路径D:\WorkSpace
+        // 编译命令gradlew uploadArchives
+//        repository(url: uri('../repository'))
+//        repository(url:"file://Users//zhuyuhao/maven/zkliveface/")
+        repository(url: "file://D://zkliveface/")
+        // 唯一标识、
+        pom.groupId = "com.zhilai.facerecognition"
+        // 项目名称
+        pom.artifactId = "readingface"
+        // 版本号
+        pom.version = "1.0.7"
+    }
+}
