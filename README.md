@@ -1,6 +1,7 @@
 # 人脸识别框架
 
 目前只集成了阅面人脸识别模块。
+GitHub地址：https://github.com/zhuyuhao121/FaceRecognition
 
 ## 依赖添加
 在你的项目根目录下的build.gradle文件中加入依赖
