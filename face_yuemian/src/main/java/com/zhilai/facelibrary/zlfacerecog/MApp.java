@@ -50,9 +50,9 @@ public class MApp {
 
     private static void initGreenDao(Context context) {
 //        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(new GreenDaoContext
-//                (context), ENCRYPTED ? "zhilai-face-db-encrypted" : "zhilai-face-db");
+//                (context), ENCRYPTED ? "zhilai-face-db-encrypted" : "zhilai-face-db.db");
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, ENCRYPTED ?
-                "zhilai-face-db-encrypted" : "zhilai-face-db");
+                "zhilai-face-db-encrypted" : "zhilai-face-db.db");
         Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper
                 .getWritableDb();
         daoSession = new DaoMaster(db).newSession();
